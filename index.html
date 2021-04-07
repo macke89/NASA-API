@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/tailwind.css" />
-    <title>NASA</title>
-  </head>
 
-  <body class="p-5">
-    <h1 class="text-3xl font-bold text-blue-700">NASA API</h1>
-    <input class="px-4 py-2 border-2" type="text" id="searchTerm" />
-    <button
-      id="search"
-      class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-    >
-      Search
-    </button>
-    <div class="content"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/tailwind.css" />
+  <title>NASA</title>
+</head>
+
+<body class="p-5">
+  <h1 class="text-3xl font-bold text-blue-700">NASA API</h1>
+  <input class="px-4 py-2 border-2" type="text" id="searchTerm" />
+  <button id="search" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+    Search
+  </button>
+  <div id="content" class="w-full h-screen"></div>
+  <script src="js/apiKey.js"></script>
+  <script src="js/app.js"></script>
 </html>
