@@ -7,16 +7,177 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/tailwind.css" />
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
   <title>NASA</title>
 </head>
 
-<body class="p-5">
-  <h1 class="text-3xl font-bold text-blue-700">NASA API</h1>
-  <input class="px-4 py-2 border-2" type="text" id="searchTerm" />
-  <button id="search" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
-    Search
-  </button>
-  <div id="content" class="w-full h-screen"></div>
+<body>
+  <header class="relative flex h-screen p-0">
+    <!-- BLUE COVER -->
+    <div class="absolute w-full h-screen bg-blue-700 opacity-60"></div>
+    <!-- WHITE COVER -->
+    <div class="absolute bottom-0 w-full bg-white sm:top-0 h-1/2 sm:h-screen sm:w-1/2 opacity-60"></div>
+    <!-- TITLE & NAV -->
+    <div class="z-10 flex flex-col justify-around h-screen sm:w-1/2">
+      <div class="sm:hidden"></div>
+      <div class="md:w-2/3 md:m-auto">
+        <h1 class="mb-4 text-4xl font-bold text-center text-blue-800 transform -skew-x-12">NASA API</h1>
+        <h4 class="mb-10 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ex eum
+          deleniti
+          earum
+          quos omnis.</h4>
+        <ul class="flex justify-around font-semibold text-blue-600">
+          <li><a
+              class="px-4 py-2 text-white transition-all duration-300 bg-blue-700 rounded hover:text-blue-900 hover:bg-blue-400"
+              href="#">Portfolio</a></li>
+          <li><a
+              class="px-4 py-2 text-white transition-all duration-300 bg-blue-700 rounded hover:text-blue-900 hover:bg-blue-400"
+              href="#">LinkedIn</a></li>
+          <li><a
+              class="px-4 py-2 text-white transition-all duration-300 bg-blue-700 rounded hover:text-blue-900 hover:bg-blue-400"
+              href="#">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <!-- POPUP WINDOW -->
+  <div
+    class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-black opacity-0 -inset-x-full popup-window">
+  </div>
+
+  <!-- INFO BOX WINDOW -->
+  <div
+    class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-black opacity-0 -inset-x-full infoBox-window">
+  </div>
+
+  <main class="top-0 left-0 min-h-screen text-white xl:w-3/5 xl:m-auto stars">
+    <!-- PICTURE OF THE DAY -->
+    <div class="mb-10 sm:flex xl:w-4/5 xl:m-auto">
+      <img class="object-cover sm:w-1/2 popup" src="/images/eric-tompkins-JsWBc--sf2o-unsplash.jpg" alt="test">
+      <div class="p-2 sm:w-1/2">
+        <h2 class="font-bold text-center">Lorem, ipsum dolor.</h2>
+        <p class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque nemo
+          possimus non
+          voluptas quis soluta fugit obcaecati quibusdam hic magnam nihil, reprehenderit impedit doloremque repellendus
+          repudiandae esse quos. Facilis dignissimos tempore minus eum, sapiente dolor perspiciatis saepe, qui sit id,
+          consectetur nemo omnis quidem exercitationem nostrum illo!</p>
+      </div>
+    </div>
+    <div class="hr"></div>
+
+    <!-- MARS PICTURE -->
+    <div class="mb-10 sm:flex sm:flex-wrap sm:w-4/5 sm:m-auto">
+      <div class="flex flex-col flex-auto w-full sm:flex-row">
+        <img class="object-cover sm:w-1/4 popup" src="/images/ruslan-bardash-b0FxvAf7g-o-unsplash.jpg" alt="test">
+        <img class="object-cover sm:w-1/4 popup" src="/images/joshua-fuller-9QF90iLO0q0-unsplash.jpg" alt="test">
+        <img class="object-cover sm:w-1/4 popup" src="/images/nasa-5e9CmF-Ge9Y-unsplash.jpg" alt="test">
+        <img class="object-cover sm:w-1/4 popup" src="/images/nasa-OLlj17tUZnU-unsplash.jpg" alt="test">
+      </div>
+      <div class="sm:w-1/2">
+        <h2 class="p-2 font-bold text-center">Lorem, ipsum dolor.</h2>
+        <p class="p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque
+          nemo
+          possimus non
+          voluptas quis soluta fugit obcaecati quibusdam hic magnam nihil, reprehenderit impedit doloremque
+          repellendus
+          repudiandae esse quos. Facilis dignissimos tempore minus eum, sapiente dolor perspiciatis saepe, qui sit id,
+          consectetur nemo omnis quidem exercitationem nostrum illo!</p>
+      </div>
+      <div class="relative sm:w-1/2">
+        <img class="popup" src="/images/history-in-hd-e5eDHbmHprg-unsplash.jpg" alt="">
+        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-90 clippy-card">
+          <div class="absolute pr-2 text-white left-2 bottom-5">
+            <button class="px-5 py-1 bg-green-400 rounded">test</button>
+            <h3 class="">
+              Lorem ipsum dolor sit amet consectetur adipisicing.
+            </h3>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="hr"></div>
+
+    <!-- INFO BOXES -->
+    <div class="mb-10 sm:m-auto sm:w-4/5">
+      <h2 class="font-bold text-center">Lorem, ipsum dolor.</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque nemo
+        possimus non
+        voluptas quis soluta fugit obcaecati quibusdam hic magnam nihil, reprehenderit impedit doloremque repellendus
+        repudiandae esse quos. Facilis dignissimos tempore minus eum, sapiente dolor perspiciatis saepe, qui sit id,
+        consectetur nemo omnis quidem exercitationem nostrum illo!</p>
+      <!-- THE BOX -->
+
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="w-full h-48 glide__slide">
+              <img class="object-contain" src="/images/spacex-YSvUYqf9Mjk-unsplash.jpg" alt="test">
+            </li>
+            <li class="w-full h-48 glide__slide">
+              <img class="object-contain" src="/images/bill-jelen-woWf_VJ7dNs-unsplash.jpg" alt="test">
+            </li>
+            <li class="w-full h-48 glide__slide">
+              <img class="object-contain" src="/images/meric-dagli-WWdCXWmDLQw-unsplash.jpg" alt="test">
+            </li>
+          </ul>
+        </div>
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+          <button class="glide__bullet" data-glide-dir="=0"></button>
+          <button class="glide__bullet" data-glide-dir="=1"></button>
+          <button class="glide__bullet" data-glide-dir="=2"></button>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="sm:mb-10 sm:m-auto sm:w-4/5">
+        <div class="flex flex-wrap sm:gap-2">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/spacex-YSvUYqf9Mjk-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/andrew-russian-UuVkBMbNSlM-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/artur-d-LnPS1kc1QPE-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/bill-jelen-woWf_VJ7dNs-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/history-in-hd-e5eDHbmHprg-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/meric-dagli-WWdCXWmDLQw-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/spacex-YSvUYqf9Mjk-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/andrew-russian-UuVkBMbNSlM-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/ruslan-bardash-b0FxvAf7g-o-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/joshua-fuller-9QF90iLO0q0-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/nasa-5e9CmF-Ge9Y-unsplash.jpg" alt="test">
+          <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
+            src="/images/nasa-OLlj17tUZnU-unsplash.jpg" alt="test">
+        </div>
+      </div>
+  </main>
+
+  <footer class="p-2 bg-gray-200">
+    <h2 class="font-bold text-center">Lorem, ipsum dolor.</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione laborum rem iste est vero animi saepe
+      praesentium, unde omnis quam accusamus.</p>
+  </footer>
+  <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
   <script src="js/apiKey.js"></script>
   <script src="js/app.js"></script>
+
+
 </html>
