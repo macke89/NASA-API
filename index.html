@@ -106,8 +106,8 @@
 
     <!-- INFO BOXES -->
     <div class="mb-10 sm:m-auto sm:w-4/5">
-      <h2 class="font-bold text-center">Lorem, ipsum dolor.</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque nemo
+      <h2 class="p-2 font-bold text-center">Lorem, ipsum dolor.</h2>
+      <p class="p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque nemo
         possimus non
         voluptas quis soluta fugit obcaecati quibusdam hic magnam nihil, reprehenderit impedit doloremque repellendus
         repudiandae esse quos. Facilis dignissimos tempore minus eum, sapiente dolor perspiciatis saepe, qui sit id,
@@ -117,14 +117,17 @@
       <div class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
-            <li class="w-full h-48 glide__slide">
-              <img class="object-contain" src="/images/spacex-YSvUYqf9Mjk-unsplash.jpg" alt="test">
+            <li class="relative w-full glide__slide">
+              <img class="object-cover w-full h-64" src="/images/spacex-YSvUYqf9Mjk-unsplash.jpg" alt="test">
+              <button class="white-button">More Info</button>
             </li>
-            <li class="w-full h-48 glide__slide">
-              <img class="object-contain" src="/images/bill-jelen-woWf_VJ7dNs-unsplash.jpg" alt="test">
+            <li class="relative w-full glide__slide">
+              <img class="object-cover w-full h-64" src="/images/bill-jelen-woWf_VJ7dNs-unsplash.jpg" alt="test">
+              <button class="white-button">More Info</button>
             </li>
-            <li class="w-full h-48 glide__slide">
-              <img class="object-contain" src="/images/meric-dagli-WWdCXWmDLQw-unsplash.jpg" alt="test">
+            <li class="relative w-full glide__slide">
+              <img class="object-cover w-full h-64" src="/images/meric-dagli-WWdCXWmDLQw-unsplash.jpg" alt="test">
+              <button class="white-button">More Info</button>
             </li>
           </ul>
         </div>
@@ -134,13 +137,17 @@
           <button class="glide__bullet" data-glide-dir="=2"></button>
         </div>
         <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+          <button class="glide__arrow glide__arrow--left arrows left-2" data-glide-dir="<">
+            <i class="fa-5x fa-chevron-left"></i>
+          </button>
+          <button class="glide__arrow glide__arrow--right arrows right-2" data-glide-dir=">">
+            <i class="fa-5x fa-chevron-right"></i>
+          </button>
         </div>
       </div>
 
       <!-- GALLERY -->
-      <div class="sm:mb-10 sm:m-auto sm:w-4/5">
+      <div class="sm:mb-10 sm:m-auto">
         <div class="flex flex-wrap sm:gap-2">
           <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
             src="/images/spacex-YSvUYqf9Mjk-unsplash.jpg" alt="test">
