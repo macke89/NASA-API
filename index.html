@@ -9,25 +9,27 @@
   <link rel="stylesheet" href="css/tailwind.css" />
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-
   <title>NASA</title>
 </head>
 
 <body>
-  <header class="relative flex h-screen p-0">
+  <header class="relative flex h-screen p-0 mb-12">
     <!-- BLUE COVER -->
     <div class="absolute w-full h-screen bg-blue-700 opacity-60"></div>
     <!-- WHITE COVER -->
-    <div class="absolute bottom-0 w-full bg-white sm:top-0 h-1/2 sm:h-screen sm:w-1/2 opacity-60"></div>
+    <div class="absolute bottom-0 w-full bg-white opacity-75 sm:top-0 h-1/2 sm:h-screen sm:w-1/2"></div>
     <!-- TITLE & NAV -->
     <div class="z-10 flex flex-col justify-around h-screen sm:w-1/2">
       <div class="sm:hidden"></div>
       <div class="md:w-2/3 md:m-auto">
-        <h1 class="mb-4 text-4xl font-bold text-center text-blue-800 transform -skew-x-12">NASA API</h1>
-        <h4 class="mb-10 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ex eum
-          deleniti
-          earum
-          quos omnis.</h4>
+        <h1 class="mb-4 text-4xl font-bold text-center text-blue-800 transform -skew-x-12">
+          NASA API
+        </h1>
+
+        <h4 class="mb-10 text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus dolores aliquam, optio modi voluptate
+          sapiente.
+        </h4>
         <ul class="flex justify-around font-semibold text-blue-600">
           <li><a
               class="px-4 py-2 text-white transition-all duration-300 bg-blue-700 rounded hover:text-blue-900 hover:bg-blue-400"
@@ -44,53 +46,76 @@
   </header>
 
 
-
-
   <!-- POPUP WINDOW -->
   <div
     class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-black opacity-0 -inset-x-full popup-window">
   </div>
 
-  <!-- INFO BOX WINDOW -->
-  <div
-    class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-black opacity-0 -inset-x-full infoBox-window">
-  </div>
+  <!-- MORE INFO WINDOW -->
+  <div id="moreInfoWindow"></div>
 
-  <main class="top-0 left-0 min-h-screen text-white xl:w-3/5 xl:m-auto stars">
+  <!-- MAIN -->
+  <main class="min-h-screen text-white md:3/5 xl:w-4/5 xl:m-auto stars">
+
     <!-- PICTURE OF THE DAY -->
     <div class="mb-10 sm:flex xl:w-4/5 xl:m-auto">
-      <img class="object-cover sm:w-1/2 popup" src="/images/eric-tompkins-JsWBc--sf2o-unsplash.jpg" alt="test">
+      <img id="picOfDay_img" class="object-cover sm:w-1/2 popup" src="/images/eric-tompkins-JsWBc--sf2o-unsplash.jpg"
+        alt="test">
       <div class="p-2 sm:w-1/2">
-        <h2 class="font-bold text-center">Lorem, ipsum dolor.</h2>
-        <p class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque nemo
+        <h2 id="picOfDay_title" class="font-bold text-center">Lorem, ipsum dolor.</h2>
+        <p id="picOfDay_dscr">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque nemo
           possimus non
           voluptas quis soluta fugit obcaecati quibusdam hic magnam nihil, reprehenderit impedit doloremque repellendus
           repudiandae esse quos. Facilis dignissimos tempore minus eum, sapiente dolor perspiciatis saepe, qui sit id,
-          consectetur nemo omnis quidem exercitationem nostrum illo!</p>
+          consectetur nemo omnis quidem exercitationem nostrum illo!
+        </p>
+        <br>
+        <div id="picOfDay_date">Lorem</div>
       </div>
     </div>
     <div class="hr"></div>
+    <div id="content" class="text-white"></div>
 
     <!-- MARS PICTURE -->
     <div class="mb-10 sm:flex sm:flex-wrap sm:w-4/5 sm:m-auto">
       <div class="flex flex-col flex-auto w-full sm:flex-row">
-        <img class="object-cover sm:w-1/4 popup" src="/images/ruslan-bardash-b0FxvAf7g-o-unsplash.jpg" alt="test">
-        <img class="object-cover sm:w-1/4 popup" src="/images/joshua-fuller-9QF90iLO0q0-unsplash.jpg" alt="test">
-        <img class="object-cover sm:w-1/4 popup" src="/images/nasa-5e9CmF-Ge9Y-unsplash.jpg" alt="test">
-        <img class="object-cover sm:w-1/4 popup" src="/images/nasa-OLlj17tUZnU-unsplash.jpg" alt="test">
+        <img id="marsRover1" class="object-cover sm:w-1/4 popup" src="/images/ruslan-bardash-b0FxvAf7g-o-unsplash.jpg"
+          alt="test">
+        <img id="marsRover2" class="object-cover sm:w-1/4 popup" src="/images/joshua-fuller-9QF90iLO0q0-unsplash.jpg"
+          alt="test">
+        <img id="marsRover3" class="object-cover sm:w-1/4 popup" src="/images/nasa-5e9CmF-Ge9Y-unsplash.jpg"
+          id="marsRover1" alt="test">
+        <img class="object-cover sm:w-1/4 popup" src="/images/nasa-OLlj17tUZnU-unsplash.jpg" id="marsRover4" alt="test">
       </div>
       <div class="sm:w-1/2">
         <h2 class="p-2 font-bold text-center">Lorem, ipsum dolor.</h2>
-        <p class="p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque
-          nemo
-          possimus non
-          voluptas quis soluta fugit obcaecati quibusdam hic magnam nihil, reprehenderit impedit doloremque
-          repellendus
-          repudiandae esse quos. Facilis dignissimos tempore minus eum, sapiente dolor perspiciatis saepe, qui sit id,
-          consectetur nemo omnis quidem exercitationem nostrum illo!</p>
+        <p class="p-2">
+          Curiosity is a car-sized Mars rover designed to explore the Gale crater on Mars as part of NASA's Mars Science
+          Laboratory (MSL) mission.[2] Curiosity was launched from Cape Canaveral (CCAFS) on 26 November 2011, at
+          15:02:00 UTC and landed on Aeolis Palus inside Gale crater on Mars on 6 August 2012, 05:17:57 UTC.[5][6][9]
+          The Bradbury Landing site was less than 2.4 km (1.5 mi) from the center of the rover's touchdown target after
+          a 560 million km (350 million mi) journey.[10][11]
+
+          The rover's goals include an investigation of the Martian climate and geology, assessment of whether the
+          selected field site inside Gale has ever offered environmental conditions favorable for microbial life
+          (including investigation of the role of water), and planetary habitability studies in preparation for human
+          exploration.[12][13]
+
+          In December 2012, Curiosity's two-year mission was extended indefinitely,[14] and on 5 August 2017, NASA
+          celebrated the fifth anniversary of the Curiosity rover landing.[15][16] The rover is still operational, and
+          as of April 11, 2021, Curiosity has been active on Mars for 3085 sols (3170 total days; 8 years, 248 days)
+          since its landing (see current status).
+
+          The NASA/JPL Mars Science Laboratory/Curiosity Project Team was awarded the 2012 Robert J. Collier Trophy by
+          the National Aeronautic Association "In recognition of the extraordinary achievements of successfully landing
+          Curiosity on Mars, advancing the nation's technological and engineering capabilities, and significantly
+          improving humanity's understanding of ancient Martian habitable environments."[17] Curiosity's rover design
+          serves as the basis for NASA's 2021 Perseverance mission, which carries different scientific instruments.
+        </p>
       </div>
       <div class="relative sm:w-1/2">
-        <img class="popup" src="/images/history-in-hd-e5eDHbmHprg-unsplash.jpg" alt="">
+        <img id="marsRover5" class="popup" src="/images/history-in-hd-e5eDHbmHprg-unsplash.jpg" alt="">
         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-90 clippy-card">
           <div class="absolute pr-2 text-white left-2 bottom-5">
             <button class="px-5 py-1 bg-green-400 rounded">test</button>
@@ -112,45 +137,37 @@
         voluptas quis soluta fugit obcaecati quibusdam hic magnam nihil, reprehenderit impedit doloremque repellendus
         repudiandae esse quos. Facilis dignissimos tempore minus eum, sapiente dolor perspiciatis saepe, qui sit id,
         consectetur nemo omnis quidem exercitationem nostrum illo!</p>
-      <!-- THE BOX -->
 
+      <!-- THE BOX -->
       <div class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
-            <li class="relative w-full glide__slide">
-              <img class="object-cover w-full h-64" src="/images/spacex-YSvUYqf9Mjk-unsplash.jpg" alt="test">
-              <button class="white-button">More Info</button>
-            </li>
-            <li class="relative w-full glide__slide">
-              <img class="object-cover w-full h-64" src="/images/bill-jelen-woWf_VJ7dNs-unsplash.jpg" alt="test">
-              <button class="white-button">More Info</button>
-            </li>
-            <li class="relative w-full glide__slide">
-              <img class="object-cover w-full h-64" src="/images/meric-dagli-WWdCXWmDLQw-unsplash.jpg" alt="test">
-              <button class="white-button">More Info</button>
-            </li>
+
+
+
+
+
+
           </ul>
         </div>
-        <div class="glide__bullets" data-glide-el="controls[nav]">
-          <button class="glide__bullet" data-glide-dir="=0"></button>
-          <button class="glide__bullet" data-glide-dir="=1"></button>
-          <button class="glide__bullet" data-glide-dir="=2"></button>
-        </div>
+        <!-- ARROWS -->
         <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left arrows left-2" data-glide-dir="<">
-            <i class="fa-5x fa-chevron-left"></i>
+          <button class="left-0 w-12 h-full glide__arrow glide__arrow--left arrows" data-glide-dir="<">
+            <i class="fa fa-chevron-left fa-2x"></i>
           </button>
-          <button class="glide__arrow glide__arrow--right arrows right-2" data-glide-dir=">">
-            <i class="fa-5x fa-chevron-right"></i>
+          <button class="right-0 w-12 h-full glide__arrow glide__arrow--right arrows" data-glide-dir=">">
+            <i class="fa fa-chevron-right fa-2x"></i>
           </button>
         </div>
       </div>
+
+      <div class="hr"></div>
 
       <!-- GALLERY -->
       <div class="sm:mb-10 sm:m-auto">
         <div class="flex flex-wrap sm:gap-2">
           <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
-            src="/images/spacex-YSvUYqf9Mjk-unsplash.jpg" alt="test">
+            src="https://apod.nasa.gov/apod/image/0806/hannysvoorwerp_wht.jpg" alt="test">
           <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
             src="/images/andrew-russian-UuVkBMbNSlM-unsplash.jpg" alt="test">
           <img class="flex object-cover w-1/2 h-32 sm:flex-grow sm:w-auto popup"
@@ -177,10 +194,18 @@
       </div>
   </main>
 
-  <footer class="p-2 bg-gray-200">
-    <h2 class="font-bold text-center">Lorem, ipsum dolor.</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione laborum rem iste est vero animi saepe
-      praesentium, unde omnis quam accusamus.</p>
+  <footer class="p-2 text-white bg-gray-900">
+    <ul class="flex justify-around gap-5 mb-5 font-semibold sm:w-1/3 sm:m-auto">
+      <li class="inline"><a class="inline" href="#">Portfolio</a></li>
+      <li class="inline"><a class="inline" href="#">LinkedIn</a></li>
+      <li class="inline"><a class="inline" href="#">GitHub</a></li>
+    </ul>
+
+    <div class="">
+      <h2 class="font-bold text-center">Lorem, ipsum dolor.</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione laborum rem iste est vero animi saepe
+        praesentium, unde omnis quam accusamus.</p>
+    </div>
   </footer>
   <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
   <script src="js/apiKey.js"></script>
