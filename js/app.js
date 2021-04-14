@@ -112,7 +112,21 @@ function use_infoBoxes(data) {
   });
 
   // CAROUSEL
-  new Glide(".glide").mount();
+  var glide = new Glide(".glide", {
+    type: "carousel",
+    perView: 4,
+    focusAt: "center",
+    breakpoints: {
+      800: {
+        perView: 2,
+      },
+      480: {
+        perView: 1,
+      },
+    },
+  });
+
+  glide.mount();
 }
 
 function moreInfo(id) {
@@ -136,8 +150,8 @@ function use_gallery(data) {
 }
 
 setTimeout(function () {
-  picOfDay();
-  marsRover();
-  infoBoxes();
+  // picOfDay();
+  // marsRover();
+  // infoBoxes();
   // gallery();
 }, 2000); //wait 2 seconds

@@ -1,15 +1,27 @@
 body {
-  background-color: rgb(8, 8, 8);
+  background-image: url("/images/Desktop\ -\ 2.png");
+  background-size: cover;
+  padding: 1%;
 }
 
-header {
-  background-image: url("/images/nasa-yZygONrUBe8-unsplash.jpg");
-  background-position: right top;
-  background-size: cover;
+#svg61 {
+}
+
+.button {
+  border: 4px solid #0088a6;
+  border-radius: 40px;
+  padding: 0.8rem;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .title {
-  height: 13rem;
+  color: #0088a6;
+}
+
+svg {
+  margin: 2rem 0;
 }
 
 .clippy-card {
