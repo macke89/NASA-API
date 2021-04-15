@@ -1,4 +1,61 @@
-"use strict";
+("use strict");
+
+// IMAGE OF THE DAY
+async function picOfDay() {
+  let response = await fetch(
+    `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
+  );
+  let data = await response.json();
+  console.log(data);
+  use_picOfDay(data);
+}
+
+function use_picOfDay(data) {
+  let picOfDayImage = document.querySelector("#picOfDay_image");
+  let loaderImage = document.querySelector("#picOfDay_image_loader");
+
+  let picOfDayInfo = document.querySelector("#picOfDay_info");
+
+  let loaderInfo = document.querySelector("#picOfDay_info_loader");
+
+  let imageHtml = `
+    <img src="${data.url}" alt="Pic the Of Day" class="object-cover">
+  `;
+  let infoHtml = `
+    <h1>${data.title}</h1>
+    <br />
+    <p>${data.explanation}</p>
+    <br />
+    <div>${data.date}</div>
+  `;
+
+  picOfDayImage.insertAdjacentHTML("afterbegin", imageHtml);
+  loaderImage.parentNode.removeChild(loaderImage);
+
+  picOfDayInfo.insertAdjacentHTML("beforeend", infoHtml);
+  loaderInfo.parentNode.removeChild(loaderInfo);
+}
+
+// MARS ROVER
+async function marsRover() {
+  let response = await fetch(
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${API_KEY}`
+  );
+  let data = await response.json();
+  // console.log(data.photos[0].img_src);
+  // console.log(data.photos[0].img_src);
+  // console.log(data);
+  // console.log(data.random());
+  use_marsRover(data);
+}
+
+function use_marsRover(data) {
+  document.querySelector("#marsRover1").src = data.photos[855].img_src;
+  document.querySelector("#marsRover2").src = data.photos[118].img_src;
+  document.querySelector("#marsRover3").src = data.photos[849].img_src;
+  document.querySelector("#marsRover4").src = data.photos[25].img_src;
+  document.querySelector("#marsRover5").src = data.photos[0].img_src;
+}
 
 // POPUPS
 const popups = document.querySelectorAll(".popup");
@@ -30,48 +87,6 @@ function showInfo() {
   const modal = document.querySelector(".popup-window");
   modal.classList.toggle("-inset-x-full");
   modal.classList.toggle("opacity-0");
-}
-
-// IMAGE OF THE DAY
-async function picOfDay() {
-  let response = await fetch(
-    `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
-  );
-  let data = await response.json();
-  // console.log(data);
-  use_picOfDay(data);
-}
-
-function use_picOfDay(data) {
-  document.querySelector("#picOfDay_img").src = data.url;
-  document.querySelector("#picOfDay_title").innerHTML = data.title;
-  document.querySelector("#picOfDay_dscr").innerHTML = data.explanation;
-  document.querySelector("#picOfDay_date").innerHTML = data.date;
-}
-
-// MARS ROVER
-Array.prototype.random = function () {
-  return this[Math.floor(Math.random() * this.length)];
-};
-
-async function marsRover() {
-  let response = await fetch(
-    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${API_KEY}`
-  );
-  let data = await response.json();
-  // console.log(data.photos[0].img_src);
-  console.log(data.photos[0].img_src);
-  console.log(data);
-  // console.log(data.random());
-  use_marsRover(data);
-}
-
-function use_marsRover(data) {
-  document.querySelector("#marsRover1").src = data.photos[855].img_src;
-  document.querySelector("#marsRover2").src = data.photos[118].img_src;
-  document.querySelector("#marsRover3").src = data.photos[849].img_src;
-  document.querySelector("#marsRover4").src = data.photos[25].img_src;
-  document.querySelector("#marsRover5").src = data.photos[0].img_src;
 }
 
 // INFO BOXES
@@ -150,7 +165,8 @@ function use_gallery(data) {
 }
 
 setTimeout(function () {
-  // picOfDay();
+  console.log("setTime");
+  picOfDay();
   // marsRover();
   // infoBoxes();
   // gallery();

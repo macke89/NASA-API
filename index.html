@@ -10,7 +10,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/tailwind.css" />
-  <link rel="stylesheet" href="css/animation.css">
   <title>NASA</title>
 </head>
 
@@ -54,14 +53,15 @@
   <!-- MAIN -->
   <main>
     <div class="min-h-screen m-auto text-white">
+
       <!-- PICTURE OF THE DAY -->
       <div class="pt-20 pb-20 background">
-        <div class="m-auto sm:w-5/6 sm:flex lg:w-4/6">
-          <div class="w-full">
-            <img src="/svg/bars.svg" alt="" class="w-12 m-auto h-72">
+        <div class="m-auto sm:w-5/6 2xl:flex lg:w-4/5 2xl:gap-20">
+          <div class="w-full mb-16 h-1/2 2xl:mb-0" id="picOfDay_image">
+            <img src="/svg/bars.svg" alt="" class="w-12 m-auto h-72" id="picOfDay_image_loader">
           </div>
-          <div class="w-full">
-            <img src="/svg/bars.svg" alt="" class="w-12 m-auto h-72">
+          <div class="w-full p-2" id="picOfDay_info">
+            <img src="/svg/bars.svg" alt="" class="w-12 m-auto h-72" id="picOfDay_info_loader">
           </div>
         </div>
       </div>
