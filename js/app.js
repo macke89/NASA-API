@@ -13,7 +13,6 @@ async function picOfDay() {
 function use_picOfDay(data) {
   let picOfDayImage = document.querySelector("#picOfDay_image");
   let loaderImage = document.querySelector("#picOfDay_image_loader");
-  // document.querySelector("#picOfDay_image_loader").src = data.url;
 
   let picOfDayInfo = document.querySelector("#picOfDay_info");
 
@@ -91,19 +90,20 @@ function use_marsRover(data) {
 // INFO BOXES
 async function infoBoxes() {
   let response = await fetch(
-    `https://api.nasa.gov/planetary/apod?count=5&api_key=${API_KEY}`
+    `https://api.nasa.gov/planetary/apod?count=7&api_key=${API_KEY}`
   );
   let data = await response.json();
-  console.log(data);
   use_infoBoxes(data);
 }
 
 function use_infoBoxes(data) {
   let slider = document.querySelector(".glide__slides");
+  let loader = document.querySelector("#infoBox_loader");
+
   data.forEach((item) => {
     let html = `
     <li class="relative w-full glide__slide">
-      <img class="object-cover w-full h-64 popup" src="${item.url}" alt="test">
+      <img class="object-cover w-full h-64 popup" src="${item.url}" alt="${item.url}">
       <button class="white-button" onclick="moreInfo('slide-0')">More Info</button>
     </li>
     `;
@@ -111,19 +111,21 @@ function use_infoBoxes(data) {
     slider.insertAdjacentHTML("beforeend", html);
   });
 
-  let moreInfoPopup = document.querySelector("#moreInfoWindow");
-  data.forEach((item, index) => {
-    let html = `
-    <div id="slide-${index}"
-      class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-black opacity-0 cursor-pointer -inset-x-full"
-      onclick="moreInfo('slide-${index}')">
-      ${item.explanation}
-      sapiente nisi voluptatibus magnam?
-    </div>
-    `;
+  loader.parentNode.removeChild(loader);
 
-    moreInfoPopup.insertAdjacentHTML("beforeend", html);
-  });
+  // let moreInfoPopup = document.querySelector("#moreInfoWindow");
+  // data.forEach((item, index) => {
+  //   let html = `
+  //   <div id="slide-${index}"
+  //     class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-black opacity-0 cursor-pointer -inset-x-full"
+  //     onclick="moreInfo('slide-${index}')">
+  //     ${item.explanation}
+  //     sapiente nisi voluptatibus magnam?
+  //   </div>
+  //   `;
+
+  // moreInfoPopup.insertAdjacentHTML("beforeend", html);
+  // });
 
   // CAROUSEL
   var glide = new Glide(".glide", {
@@ -197,8 +199,8 @@ function use_gallery(data) {
 
 setTimeout(function () {
   console.log("setTime");
-  picOfDay();
-  marsRover();
+  // picOfDay();
+  // marsRover();
   // infoBoxes();
   // gallery();
 }, 2000); //wait 2 seconds
