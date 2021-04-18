@@ -1,6 +1,12 @@
 ("use strict");
 
-// GALLERY
+document.querySelector("#search").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    gallery();
+  }
+});
+
+// FETCH DATA
 async function gallery() {
   let input = document.querySelector("#search").value;
   console.log(input);

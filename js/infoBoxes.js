@@ -18,7 +18,7 @@ function set_popup(data) {
   data.forEach((item, index) => {
     let html = `
     <div class="IB_modal -inset-x-full opacity-0" id="slide-${index}">
-      <div class="w-full max-h-screen p-4 bg-white rounded IB_modal_window md:w-3/4">
+      <div class="w-full max-h-screen p-4 bg-white rounded IB_modal_window md:w-1/4">
         ${item.explanation}
         <button class="block w-full px-4 py-1 mt-4 font-semibold text-black transition-all duration-300 rounded hover:bg-gray-200 close-button" onclick="moreInfo('slide-${index}')">Close</button>
       </div>
