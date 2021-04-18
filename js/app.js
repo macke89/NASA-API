@@ -87,64 +87,6 @@ function use_marsRover(data) {
   marsFive.parentNode.removeChild(marsFive);
 }
 
-// INFO BOXES
-async function infoBoxes() {
-  let response = await fetch(
-    `https://api.nasa.gov/planetary/apod?count=7&api_key=${API_KEY}`
-  );
-  let data = await response.json();
-  use_infoBoxes(data);
-}
-
-function use_infoBoxes(data) {
-  let slider = document.querySelector(".glide__slides");
-  let loader = document.querySelector("#infoBox_loader");
-
-  data.forEach((item) => {
-    let html = `
-    <li class="relative w-full glide__slide">
-      <img class="object-cover w-full h-64 popup" src="${item.url}" alt="${item.url}">
-      <button class="white-button" onclick="moreInfo('slide-0')">More Info</button>
-    </li>
-    `;
-
-    slider.insertAdjacentHTML("beforeend", html);
-  });
-
-  loader.parentNode.removeChild(loader);
-
-  // let moreInfoPopup = document.querySelector("#moreInfoWindow");
-  // data.forEach((item, index) => {
-  //   let html = `
-  //   <div id="slide-${index}"
-  //     class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-black opacity-0 cursor-pointer -inset-x-full"
-  //     onclick="moreInfo('slide-${index}')">
-  //     ${item.explanation}
-  //     sapiente nisi voluptatibus magnam?
-  //   </div>
-  //   `;
-
-  // moreInfoPopup.insertAdjacentHTML("beforeend", html);
-  // });
-
-  // CAROUSEL
-  var glide = new Glide(".glide", {
-    type: "carousel",
-    perView: 4,
-    focusAt: "center",
-    breakpoints: {
-      800: {
-        perView: 2,
-      },
-      480: {
-        perView: 1,
-      },
-    },
-  });
-
-  glide.mount();
-}
-
 // POPUPS
 const popups = document.querySelectorAll(".popup");
 const modal = document.querySelector(".popup-window");
@@ -170,21 +112,6 @@ popups.forEach((item) => {
   });
 });
 
-// INFO BOX
-function showInfo() {
-  const modal = document.querySelector(".popup-window");
-  modal.classList.toggle("-inset-x-full");
-  modal.classList.toggle("opacity-0");
-}
-
-function moreInfo(id) {
-  let popup = document.getElementById(id);
-  console.log(popup);
-
-  popup.classList.toggle("-inset-x-full");
-  popup.classList.toggle("opacity-0");
-}
-
 // GALLERY
 async function gallery() {
   let response = await fetch(`https://images-api.nasa.gov/search?q=airplane`);
@@ -201,6 +128,6 @@ setTimeout(function () {
   console.log("setTime");
   // picOfDay();
   // marsRover();
-  // infoBoxes();
+  infoBoxes();
   // gallery();
 }, 2000); //wait 2 seconds

@@ -14,6 +14,17 @@
 </head>
 
 <body>
+
+
+  <!-- POPUP WINDOW -->
+  <div
+    class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-gray-800 opacity-0 -inset-x-full popup-window">
+  </div>
+
+  <!-- MORE INFO WINDOW -->
+  <div id="infoBox_window"></div>
+
+
   <header class="pb-10">
     <div class="w-5/6 min-h-screen m-auto text-white lg:w-4/6">
       <nav class="items-center justify-between mt-5 sm:flex sm:mb-7 lg:mb-12">
@@ -42,13 +53,6 @@
     </div>
   </header>
 
-  <!-- POPUP WINDOW -->
-  <div
-    class="fixed top-0 z-50 w-full h-screen text-white transition-all duration-500 ease-in bg-black opacity-0 -inset-x-full popup-window">
-  </div>
-
-  <!-- MORE INFO WINDOW -->
-  <div id="moreInfoWindow"></div>
 
   <!-- MAIN -->
   <main>
@@ -104,15 +108,6 @@
       <!-- INFO BOXES -->
       <div class="pt-20 pb-20 background">
         <div class="mb-10 sm:m-auto sm:w-4/6 lg:w-4/6">
-          <h2 class="p-2 font-bold text-center">Lorem, ipsum dolor.</h2>
-          <p class="p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum voluptatibus atque
-            nemo
-            possimus non
-            voluptas quis soluta fugit obcaecati quibusdam hic magnam nihil, reprehenderit impedit doloremque
-            repellendus
-            repudiandae esse quos. Facilis dignissimos tempore minus eum, sapiente dolor perspiciatis saepe, qui sit id,
-            consectetur nemo omnis quidem exercitationem nostrum illo!</p>
-
           <!-- THE BOX -->
           <div class="glide">
             <div class="glide__track" data-glide-el="track">
@@ -150,10 +145,13 @@
     </div>
   </main>
 
+
   <footer class="p-2 text-center text-white bg-gray-900">
     Copyright © 2021 mo-webdesign.com
   </footer>
   <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
   <script src="js/apiKey.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/infoBoxes.js"></script>
+
 </html>

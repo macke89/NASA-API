@@ -1,7 +1,3 @@
-.test {
-  color: red !important;
-}
-
 :root {
   --circle-color: white;
   --main-color: #0088a6;
@@ -17,6 +13,8 @@ body {
   transition: all 300ms;
   color: var(--main-color);
 } */
+
+/* HEADER */
 
 .title {
   color: var(--main-color);
@@ -57,10 +55,6 @@ body {
   height: 0.1rem;
 }
 
-.popup {
-  cursor: pointer;
-}
-
 .inset-center {
   position: absolute;
   top: 50%;
@@ -80,7 +74,7 @@ body {
   bottom: 5%;
   left: 50%;
   transform: translate(-50%, 0%);
-  color: black;
+  color: white;
   font-weight: 600;
   border: 1px solid white;
   padding: 0.5rem 1rem;
@@ -91,10 +85,37 @@ body {
 
 .white-button:hover {
   background-color: white;
+  color: black;
 }
 
 .arrows {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
+}
+
+/* INFO BOX */
+
+.IB_modal {
+  z-index: 200;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.IB_modal_window {
+  border: 2px solid var(--main-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  word-wrap: break-word;
+}
+
+.close-button {
+  border: 2px solid var(--main-color);
 }
