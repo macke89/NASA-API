@@ -1,41 +1,5 @@
 ("use strict");
 
-// IMAGE OF THE DAY
-async function picOfDay() {
-  let response = await fetch(
-    `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
-  );
-  let data = await response.json();
-  console.log(data);
-  use_picOfDay(data);
-}
-
-function use_picOfDay(data) {
-  let picOfDayImage = document.querySelector("#picOfDay_image");
-  let loaderImage = document.querySelector("#picOfDay_image_loader");
-
-  let picOfDayInfo = document.querySelector("#picOfDay_info");
-
-  let loaderInfo = document.querySelector("#picOfDay_info_loader");
-
-  let imageHtml = `
-    <img src="${data.url}" alt="Pic the Of Day" class="object-cover w-full h-full">
-  `;
-  let infoHtml = `
-    <h1>${data.title}</h1>
-    <br />
-    <p>${data.explanation}</p>
-    <br />
-    <div>${data.date}</div>
-  `;
-
-  picOfDayImage.insertAdjacentHTML("afterbegin", imageHtml);
-  loaderImage.parentNode.removeChild(loaderImage);
-
-  picOfDayInfo.insertAdjacentHTML("beforeend", infoHtml);
-  loaderInfo.parentNode.removeChild(loaderInfo);
-}
-
 // MARS ROVER
 async function marsRover() {
   let response = await fetch(
@@ -126,8 +90,8 @@ function use_gallery(data) {
 
 setTimeout(function () {
   console.log("setTime");
-  // picOfDay();
+  picOfDay();
   // marsRover();
-  infoBoxes();
+  // infoBoxes();
   // gallery();
 }, 2000); //wait 2 seconds

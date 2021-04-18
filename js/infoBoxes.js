@@ -1,3 +1,4 @@
+("use strict");
 // FETCH DATA
 async function infoBoxes() {
   let response = await fetch(
