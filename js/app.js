@@ -91,7 +91,7 @@ function use_gallery(data) {
 setTimeout(function () {
   console.log("setTime");
   picOfDay();
-  // marsRover();
-  // infoBoxes();
+  marsRover();
+  infoBoxes();
   // gallery();
 }, 2000); //wait 2 seconds

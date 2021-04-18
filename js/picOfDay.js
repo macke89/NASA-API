@@ -2,7 +2,7 @@
 // FETCH DATA
 async function picOfDay() {
   let response = await fetch(
-    `https://api.nasa.gov/planetary/apod?date=2021-04-16&thumbs=true&api_key=${API_KEY}`
+    `https://api.nasa.gov/planetary/apod?thumbs=true&api_key=${API_KEY}`
   );
   let data = await response.json();
   console.log(data);

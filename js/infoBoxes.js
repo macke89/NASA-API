@@ -2,7 +2,7 @@
 // FETCH DATA
 async function infoBoxes() {
   let response = await fetch(
-    `https://api.nasa.gov/planetary/apod?count=7&api_key=${API_KEY}`
+    `https://api.nasa.gov/planetary/apod?count=7&thumbs=true&api_key=${API_KEY}`
   );
   let data = await response.json();
   console.log(data);
@@ -18,7 +18,7 @@ function set_popup(data) {
   data.forEach((item, index) => {
     let html = `
     <div class="IB_modal -inset-x-full opacity-0" id="slide-${index}">
-      <div class="w-full max-h-screen p-2 bg-white rounded IB_modal_window md:w-3/4">
+      <div class="w-full max-h-screen p-4 bg-white rounded IB_modal_window md:w-3/4">
         ${item.explanation}
         <button class="block w-full px-4 py-1 mt-4 font-semibold text-black transition-all duration-300 rounded hover:bg-gray-200 close-button" onclick="moreInfo('slide-${index}')">Close</button>
       </div>
@@ -32,18 +32,33 @@ function set_popup(data) {
 function set_infoBoxes(data) {
   let slider = document.querySelector(".glide__slides");
   let loader = document.querySelector("#infoBox_loader");
-
-  const dataApi = data;
+  let infoHtml = "";
 
   data.forEach((item, index) => {
-    let html = `
+    // if (!data.thumbnail_url) {
+    //   infoHtml = `
+    //     <li class="relative w-full glide__slide">
+    //       <img class="cursor-pointer object-cover w-full h-64 IB_popup" src="${item.url}" alt="${item.url}">
+    //       <button class="white-button" onclick="moreInfo('slide-${index}')">More Info</button>
+    //     </li>
+    //   `;
+    //   infoHtml = `
+    //     <li class="relative w-full glide__slide">
+    //       <a href="${item.url}">
+    //           <img src="${item.thumbnail_url}" class="object-cover w-full h-full">
+    //       <a/>
+    //     </li>
+    //    `;
+    // }
+
+    let infoHtml = `
       <li class="relative w-full glide__slide">
         <img class="cursor-pointer object-cover w-full h-64 IB_popup" src="${item.url}" alt="${item.url}">
         <button class="white-button" onclick="moreInfo('slide-${index}')">More Info</button>
       </li>
       `;
 
-    slider.insertAdjacentHTML("beforeend", html);
+    slider.insertAdjacentHTML("beforeend", infoHtml);
   });
 
   // ADD EVENTS TO IMAGES
