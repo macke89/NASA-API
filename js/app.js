@@ -1,21 +1,14 @@
-("use strict");
+let scroll = document.querySelector("#scroll");
+let target = document.querySelector("#main");
 
-// GALLERY
-async function gallery() {
-  let response = await fetch(`https://images-api.nasa.gov/search?q=airplane`);
-  let data = await response.json();
-  console.log(data.collection.items);
-  use_gallery(data);
-}
+scroll.addEventListener("click", () => {
+  // window.scrollTo({ target, behavior: "smooth" });
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+});
 
-function use_gallery(data) {
-  let pics = data.collection.items;
-}
-
-setTimeout(function () {
+scroll.setTimeout(function () {
   console.log("setTime");
-  // picOfDay();
-  // marsRover();
-  // infoBoxes();
-  // gallery();
+  picOfDay();
+  marsRover();
+  infoBoxes();
 }, 2000); //wait 2 seconds

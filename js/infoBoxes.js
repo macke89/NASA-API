@@ -35,28 +35,29 @@ function set_infoBoxes(data) {
   let infoHtml = "";
 
   data.forEach((item, index) => {
-    // if (!data.thumbnail_url) {
-    //   infoHtml = `
-    //     <li class="relative w-full glide__slide">
-    //       <img class="cursor-pointer object-cover w-full h-64 IB_popup" src="${item.url}" alt="${item.url}">
-    //       <button class="white-button" onclick="moreInfo('slide-${index}')">More Info</button>
-    //     </li>
-    //   `;
-    //   infoHtml = `
-    //     <li class="relative w-full glide__slide">
-    //       <a href="${item.url}">
-    //           <img src="${item.thumbnail_url}" class="object-cover w-full h-full">
-    //       <a/>
-    //     </li>
-    //    `;
-    // }
-
-    let infoHtml = `
-      <li class="relative w-full glide__slide">
-        <img class="cursor-pointer object-cover w-full h-64 IB_popup" src="${item.url}" alt="${item.url}">
-        <button class="white-button" onclick="moreInfo('slide-${index}')">More Info</button>
-      </li>
+    if (!data.thumbnail_url) {
+      infoHtml = `
+        <li class="relative w-full glide__slide">
+          <img class="cursor-pointer object-cover w-full h-64 IB_popup" src="${item.url}" alt="${item.url}">
+          <button class="white-button" onclick="moreInfo('slide-${index}')">More Info</button>
+        </li>
       `;
+    } else {
+      infoHtml = `
+        <li class="relative w-full glide__slide">
+          <a href="${item.url}">
+              <img src="${item.thumbnail_url}" class="object-cover w-full h-full">
+          <a/>
+        </li>
+       `;
+    }
+
+    // let infoHtml = `
+    //   <li class="relative w-full glide__slide">
+    //     <img class="cursor-pointer object-cover w-full h-64 IB_popup" src="${item.url}" alt="${item.url}">
+    //     <button class="white-button" onclick="moreInfo('slide-${index}')">More Info</button>
+    //   </li>
+    //   `;
 
     slider.insertAdjacentHTML("beforeend", infoHtml);
   });

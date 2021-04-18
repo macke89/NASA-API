@@ -42,7 +42,7 @@
           <h1 class="text-5xl font-bold leading-relaxed lg:max-w-2xl lg:mb-20">Demo Project utilizing the <span
               class="title">NASA
               API</span></h1>
-          <button class="hidden button lg:block">Scroll Down</button>
+          <button id="scroll" class="hidden button lg:block">Scroll Down</button>
         </div>
 
         <!-- <div class="max-w-sm m-auto lg:max-w-md"> -->
@@ -55,7 +55,7 @@
 
 
   <!-- MAIN -->
-  <main>
+  <main id="main">
     <div class="min-h-screen m-auto text-white">
 
       <!-- PICTURE OF THE DAY -->
@@ -129,8 +129,12 @@
       </div>
       <!-- GALLERY -->
       <div class="pt-20 pb-20 sm:m-auto sm:w-5/6 lg:w-4/6">
-        <div class="flex flex-wrap sm:gap-2">
-          <img src="/svg/bars.svg" alt="" class="w-full m-auto h-28">
+        <div class="flex justify-center gap-2 mb-6">
+          <input type="text" class="px-2 py-1 text-black rounded" id="search">
+          <button class="px-4 font-semibold text-black bg-white rounded" onclick="gallery()">Search</button>
+        </div>
+        <div class="flex flex-wrap sm:gap-2" id="gallery">
+          <img src="/svg/bars.svg" alt="" class="w-full m-auto h-28" id="gallery_loader">
         </div>
       </div>
     </div>
@@ -145,6 +149,7 @@
   <script src="js/picOfDay.js"></script>
   <script src="js/infoBoxes.js"></script>
   <script src="js/marsRover.js"></script>
+  <script src="js/gallery.js"></script>
   <script src="js/app.js"></script>
 
 </html>
