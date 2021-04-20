@@ -1,6 +1,3 @@
-// GET API KEY
-const API_KEY = process.env.API_KEY;
-
 // SCROLL DOWN EFFECT
 let scroll = document.querySelector("#scroll");
 let target = document.querySelector("#main");
